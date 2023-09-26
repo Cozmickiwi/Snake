@@ -27,7 +27,7 @@ body {
  }
  @font-face {
     font-family: Nabla;
-    src: url(/Fonts/Nabla-Regular-VariableFont_EDPT\,EHLT.ttf);
+    src: url(Fonts/Nabla-Regular-VariableFont_EDPT\,EHLT.ttf);
  }
  .title {
     font-family: Nabla, Impact;
