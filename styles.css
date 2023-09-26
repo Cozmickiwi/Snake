@@ -1,5 +1,6 @@
 body {
     display: flex;
+    flex-direction: column;
     margin: 0px;
     width: 100vw;
     height: 100vh;
@@ -10,7 +11,30 @@ body {
 
 
 .gameContainer {
-    width: 500px;
-    height: 500px;
-    background-color: black;
+    width: 600px;
+    height: 600px;
+    background-color: rgb(143, 178, 184);
+    border: 5px solid rgb(48, 59, 95);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: auto;
 }
+ .tile{
+    width: 5%;
+    height: 5%;
+    transition: .05s;
+ }
+ @font-face {
+    font-family: Nabla;
+    src: url(/Fonts/Nabla-Regular-VariableFont_EDPT\,EHLT.ttf);
+ }
+ .title {
+    font-family: Nabla, Impact;
+    letter-spacing: 5px;
+    user-select: none;
+    background-color: rgba(137, 43, 226, 0.668);
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+ }
