@@ -153,10 +153,10 @@ function pixelColorChanger(){
             else if (plusOrMinusY == 1){
                 gameContainer.style.transform = `rotateY(-${yAxis}deg) rotateX(-${xAxis}deg`
             }
-            else if (plusOrMinusY == 3){
+            else if (plusOrMinusY == 2){
                 gameContainer.style.transform = `rotateY(${yAxis}deg) rotateX(-${xAxis}deg`
             }
-            else if (plusOrMinusY == 4){
+            else if (plusOrMinusY == 3){
                 gameContainer.style.transform = `rotateY(-${yAxis}deg) rotateX(${xAxis}deg`
             }
         }
