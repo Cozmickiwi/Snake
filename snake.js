@@ -136,6 +136,7 @@ function gameOver(){
         let gameOverText = document.querySelector('.gameOverText');
         let restartButton = document.querySelector('.restartButton');
         gameOverText.textContent = (`You ate ${score} apples!`);
+        gameOverText.style.display = ('block');
         restartButton.style.display = ('block');
         restartButton.addEventListener('click', () => {
             location.reload()
