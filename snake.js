@@ -23,6 +23,7 @@ let fruit;
 let gameStart = false;
 let scoreBoard = document.querySelector('.scoreBoard');
 let scoreNum = document.querySelector('.scoreNum');
+let updated = true;
 //make a variable which decides the direction of the snake movement
 //shouldnt allow opposite directions (for example cant go up if current direction is down,)
 let direction;
@@ -30,16 +31,20 @@ fruitGen();
 document.addEventListener('keydown', (e) =>{
     console.log(e.key)
     if(e.key == 'ArrowLeft' && direction != 'right'){
-        direction = 'left';
+        if(updated == true) direction = 'left';
+        updated = false;
     }
     else if(e.key == 'ArrowRight' && direction != 'left'){
-        direction = 'right';
+        if(updated == true) direction = 'right';
+        updated = false;
     }
     else if(e.key == 'ArrowUp' && direction != 'down'){
-        direction = 'up';
+        if(updated == true) direction = 'up';
+        updated = false;
     }
     else if(e.key == 'ArrowDown' && direction != 'up'){
-        direction = 'down';
+        if(updated == true) direction = 'down';
+        updated = false;
     }
     console.log(direction);
 })
@@ -59,6 +64,7 @@ function pixelColorChanger(){
         fruitGen();
     }
     gameStart = true;
+    updated = true;
     if(direction == 'left'){
         pixelHistory.push(prevPixel);
         let leadPixel = document.getElementById(`pixel${currentPixel}`);
@@ -136,7 +142,7 @@ function gameOver(){
         })
     }, 2000)
 }
-
+let hover = false;
 let S = document.getElementById('S');
 let N = document.getElementById('N');
 let A = document.getElementById('A');
@@ -145,18 +151,22 @@ let E = document.getElementById('E');
 let exclamation = document.getElementById('exclamation');
 let title = document.querySelector('.title');
 title.addEventListener('mouseover', (e) => {
+    title.addEventListener('mouseleave', () => {
+        hover = false;
+    })
+    hover = true;
     setTimeout(function(){
-    S.classList.add('animate');
+    if(hover == true) S.classList.add('animate');
     setTimeout(function(){
-        N.classList.add('animate');
+        if(hover == true) N.classList.add('animate');
         setTimeout(function(){
-            A.classList.add('animate');
+            if(hover == true) A.classList.add('animate');
             setTimeout(function(){
-                K.classList.add('animate');
+                if(hover == true) K.classList.add('animate');
                 setTimeout(function(){
-                    E.classList.add('animate');
+                    if(hover == true) E.classList.add('animate');
                     setTimeout(function(){
-                        exclamation.classList.add('animate');
+                        if(hover == true) exclamation.classList.add('animate');
                     }, 150)
                 }, 150)
             }, 150)
