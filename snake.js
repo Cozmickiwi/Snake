@@ -24,9 +24,68 @@ let gameStart = false;
 let scoreBoard = document.querySelector('.scoreBoard');
 let scoreNum = document.querySelector('.scoreNum');
 let updated = true;
+let speedChoice;
+let body = document.querySelector(".fullContainer");
+let ultraOn = false;
+let S = document.getElementById('S');
+let N = document.getElementById('N');
+let A = document.getElementById('A');
+let K = document.getElementById('K');
+let E = document.getElementById('E');
+let exclamation = document.getElementById('exclamation');
 //make a variable which decides the direction of the snake movement
 //shouldnt allow opposite directions (for example cant go up if current direction is down,)
 let direction;
+
+function buttonPicker(){
+    slowButton = document.getElementById('slow');
+    medButton = document.getElementById('med');
+    fastButton = document.getElementById('fast');
+    ultraButton = document.getElementById('ultra');
+    slowButton.addEventListener('click', () => {
+        speedChoice = 200;
+        slowButton.style.backgroundColor = "rgba(9, 255, 0, 0.668)";
+        medButton.style.display = "none";
+        fastButton.style.display = "none";
+        ultraButton.style.display = "none";
+        gameContent();
+    })
+    medButton.addEventListener('click', () => {
+        speedChoice = 100;
+        medButton.style.backgroundColor = "rgba(9, 255, 0, 0.668)";
+        slowButton.style.display = "none";
+        fastButton.style.display = "none";
+        ultraButton.style.display = "none";
+        gameContent();
+    })
+    fastButton.addEventListener('click', () => {
+        speedChoice = 70;
+        fastButton.style.backgroundColor = "rgba(9, 255, 0, 0.668)";
+        medButton.style.display = "none";
+        slowButton.style.display = "none";
+        ultraButton.style.display = "none";
+        gameContent();
+    })
+    ultraButton.addEventListener('click', () => {
+        speedChoice = 30;
+        ultraButton.style.backgroundColor = "rgba(9, 255, 0, 0.668)";
+        medButton.style.display = "none";
+        fastButton.style.display = "none";
+        slowButton.style.display = "none";
+        body.classList.add ('rainbow');
+        S.classList.add('titleRotation');
+        N.classList.add('titleRotation');
+        A.classList.add('titleRotation');
+        K.classList.add('titleRotation');
+        E.classList.add('titleRotation');
+        exclamation.classList.remove('animate');
+        ultraOn = true;
+        gameContent();
+    })
+    
+}
+buttonPicker();
+function gameContent(){
 fruitGen();
 document.addEventListener('keydown', (e) =>{
     console.log(e.key)
@@ -48,7 +107,8 @@ document.addEventListener('keydown', (e) =>{
     }
     console.log(direction);
 })
-setInterval(pixelColorChanger, 100);
+
+setInterval(pixelColorChanger, speedChoice);
 function pixelColorChanger(){
     if (currentPixel > 400 || currentPixel < 0 ||(((prevPixel-1) % 20 == 0) && currentPixel % 20 == 0)
      || ((prevPixel) % 20 == 0 && (currentPixel-1) % 20 == 0) || (pixelHistory.includes(currentPixel))){
@@ -67,9 +127,15 @@ function pixelColorChanger(){
     if(direction == 'left'){
         pixelHistory.push(prevPixel);
         let leadPixel = document.getElementById(`pixel${currentPixel}`);
+        if(ultraOn == true){
+            leadPixel.classList.add('rainbow');
+        }
+        else{
         leadPixel.style.backgroundColor = "green";
+        }
         leadPixel.style.border = "1.5px solid rgb(88, 88, 88)";
         let offPixel = document.getElementById(`pixel${pixelHistory[0]}`);
+        if(ultraOn == true)offPixel.classList.remove('rainbow');
         offPixel.style.backgroundColor = "black";
         offPixel.style.border = "0px";
         if (score==prevScore) pixelHistory.shift();
@@ -80,9 +146,15 @@ function pixelColorChanger(){
     else if(direction == 'right'){
         pixelHistory.push(prevPixel);
         let leadPixel = document.getElementById(`pixel${currentPixel}`);
+        if(ultraOn == true){
+            leadPixel.classList.add('rainbow');
+        }
+        else{
         leadPixel.style.backgroundColor = "green";
+        }
         leadPixel.style.border = "1.5px solid rgb(88, 88, 88)";
         let offPixel = document.getElementById(`pixel${pixelHistory[(0)]}`);
+        if(ultraOn == true)offPixel.classList.remove('rainbow');
         offPixel.style.backgroundColor = "black";
         offPixel.style.border = "0px";
         if (score==prevScore) pixelHistory.shift();
@@ -93,9 +165,15 @@ function pixelColorChanger(){
     else if(direction == 'up'){
         pixelHistory.push(prevPixel);
         let leadPixel = document.getElementById(`pixel${currentPixel}`);
+        if(ultraOn == true){
+            leadPixel.classList.add('rainbow');
+        }
+        else{
         leadPixel.style.backgroundColor = "green";
+        }
         leadPixel.style.border = "1.5px solid rgb(88, 88, 88)";
         let offPixel = document.getElementById(`pixel${pixelHistory[(0)]}`);
+        if(ultraOn == true)offPixel.classList.remove('rainbow');
         offPixel.style.backgroundColor = "black";
         offPixel.style.border = "0px";
         if (score==prevScore) pixelHistory.shift();
@@ -106,9 +184,15 @@ function pixelColorChanger(){
     else if(direction == 'down'){
         pixelHistory.push(prevPixel);
         let leadPixel = document.getElementById(`pixel${currentPixel}`);
+        if(ultraOn == true){
+            leadPixel.classList.add('rainbow');
+        }
+        else{
         leadPixel.style.backgroundColor = "green";
+        }
         leadPixel.style.border = "1.5px solid rgb(88, 88, 88)";
         let offPixel = document.getElementById(`pixel${pixelHistory[(0)]}`);
+        if(ultraOn == true)offPixel.classList.remove('rainbow');
         offPixel.style.backgroundColor = "black";
         offPixel.style.border = "0px";
         if (score==prevScore) pixelHistory.shift();
@@ -116,6 +200,7 @@ function pixelColorChanger(){
         prevPixel = currentPixel;
         currentPixel += 20;
     }
+    
 }
 //make apple appear randomly using rng, if the apple placement is where the snake currently is, reroll
 function fruitGen(){
@@ -133,6 +218,7 @@ function fruitGen(){
     fruit = document.getElementById(`pixel${fruitPixel}`);
     fruit.style.backgroundColor = "rgba(233, 26, 18, 0.8)";
 }
+
 //make game over screen which displays score and gives option to replay
 function gameOver(){
     let gameOverScreen = document.querySelector('.gameOver');
@@ -151,13 +237,8 @@ function gameOver(){
         })
     }, 2000);
 }
+}
 let hover = false;
-let S = document.getElementById('S');
-let N = document.getElementById('N');
-let A = document.getElementById('A');
-let K = document.getElementById('K');
-let E = document.getElementById('E');
-let exclamation = document.getElementById('exclamation');
 let title = document.querySelector('.title');
 title.addEventListener('mouseover', (e) => {
     title.addEventListener('mouseleave', () => {

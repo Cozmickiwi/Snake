@@ -8,35 +8,43 @@
     <script src="snake.js" defer></script>
 </head>
 <body>
-    <div class="title">
-        <p id="S">S</p>
-        <p id="N">N</p>
-        <p id="A">A</p>
-        <p id="K">K</p>
-        <p id="E">E</p>
-        <p id="exclamation">!</p>
-    </div>
-    <div class="mainContainer">
-        <div class="scoreContainer">
-            <p class="scoreTitle">SCORE:</p>
-            <div class="score">
-                <p class="scoreNum"></p>
+    <div class="fullContainer">
+        <div class="title">
+            <p id="S">S</p>
+            <p id="N">N</p>
+            <p id="A">A</p>
+            <p id="K">K</p>
+            <p id="E">E</p>
+            <p id="exclamation">!</p>
+        </div>
+        <div class="mainContainer">
+            <div class="scoreContainer">
+                <p class="scoreTitle">SCORE:</p>
+                <div class="score">
+                    <p class="scoreNum"></p>
+                </div>
+            </div>
+            <div class="speedButtons">
+                <button id="slow">SLOW</button>
+                <button id="med">MEDIUM</button>
+                <button id="fast">FAST</button>
+                <button id="ultra">ULTRA</button>
+            </div>
+            <div class="gameContainer">
+        
+            <div class="gameOver" id="gameOverOverlay">
+                <div class="overlayContent">
+                <img src="images/gameover_scaled_4x_minified.gif" alt="Game Over" style="width: 600px; height: 300px;">
+                <h1 class="gameOverText" style="display: none;"></h1>
+                <button  class="restartButton" style="display: none;">Play Again?</button>
+            </div>
+            </div>
             </div>
         </div>
-        <div class="gameContainer">
-        
-        <div class="gameOver" id="gameOverOverlay">
-            <div class="overlayContent">
-            <img src="images/gameover_scaled_4x_minified.gif" alt="Game Over" style="width: 600px; height: 300px;">
-            <h1 class="gameOverText" style="display: none;"></h1>
-            <button  class="restartButton" style="display: none;">Play Again?</button>
-        </div>
-        </div>
-        </div>
+        <footer class="gitHub">
+            <a href="https://github.com/Cozmickiwi" style="text-decoration: none; color: black; margin-right: 7px;">GitHub @Cozmickiwi</a>
+            <img id="gitCat"src="images/logo-github.svg" style="width: 13px;">
+        </footer>
     </div>
-    <footer class="gitHub">
-        <a href="https://github.com/Cozmickiwi" style="text-decoration: none; color: black; margin-right: 7px;">GitHub @Cozmickiwi</a>
-        <img id="gitCat"src="images/logo-github.svg" style="width: 13px;">
-    </footer>
 </body>
 </html>
