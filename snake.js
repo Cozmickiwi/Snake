@@ -145,7 +145,7 @@ function pixelColorChanger(){
         if(impossibleOn == true){
             gameContainer.style.transition = '1.3s'
             let yAxis = (Math.random() * 75).toFixed();
-            let plusOrMinusY = Math.round(Math.random() * 4);
+            let plusOrMinusY = Math.round(Math.random() * 3);
             let xAxis = (Math.random() * 75).toFixed();
             if(plusOrMinusY == 0){
                 gameContainer.style.transform = `rotateY(${yAxis}deg) rotateX(${xAxis}deg`
