@@ -36,8 +36,6 @@ let E = document.getElementById('E');
 let exclamation = document.getElementById('exclamation');
 let pointSound = new Audio('Sounds/jg-032316-sfx-8-bit-pong-sound (mp3cut.net).mp3');
 pointSound.loop = false;
-let laugh = new Audio('Sounds/SF-laugh-TV.mp3');
-laugh.loop = false;
 //make a variable which decides the direction of the snake movement
 //shouldnt allow opposite directions (for example cant go up if current direction is down,)
 let direction;
@@ -146,6 +144,7 @@ function pixelColorChanger(){
         gameOver();
     }
     if(currentPixel == fruitPixel){
+        pointSound.load;
         if(impossibleOn == true){
             gameContainer.style.transition = '1.3s'
             let yAxis = (Math.random() * 75).toFixed();
@@ -271,7 +270,6 @@ function fruitGen(){
 function gameOver(){
     let gameOverScreen = document.querySelector('.gameOver');
     gameOverScreen.style.display = "flex";
-    if(impossibleOn == true) laugh.play();
     setTimeout(function(){
         let gameOverText = document.querySelector('.gameOverText');
         let restartButton = document.querySelector('.restartButton');
