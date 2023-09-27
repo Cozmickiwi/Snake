@@ -27,6 +27,7 @@ let updated = true;
 let speedChoice;
 let body = document.querySelector(".fullContainer");
 let ultraOn = false;
+let impossibleOn = false;
 let S = document.getElementById('S');
 let N = document.getElementById('N');
 let A = document.getElementById('A');
@@ -42,12 +43,14 @@ function buttonPicker(){
     medButton = document.getElementById('med');
     fastButton = document.getElementById('fast');
     ultraButton = document.getElementById('ultra');
+    impossibleButton = document.getElementById('impossible');
     slowButton.addEventListener('click', () => {
         speedChoice = 200;
         slowButton.style.backgroundColor = "rgba(9, 255, 0, 0.668)";
         medButton.style.display = "none";
         fastButton.style.display = "none";
         ultraButton.style.display = "none";
+        impossibleButton.style.display = "none";
         gameContent();
     })
     medButton.addEventListener('click', () => {
@@ -56,6 +59,7 @@ function buttonPicker(){
         slowButton.style.display = "none";
         fastButton.style.display = "none";
         ultraButton.style.display = "none";
+        impossibleButton.style.display = "none";
         gameContent();
     })
     fastButton.addEventListener('click', () => {
@@ -64,6 +68,7 @@ function buttonPicker(){
         medButton.style.display = "none";
         slowButton.style.display = "none";
         ultraButton.style.display = "none";
+        impossibleButton.style.display = "none";
         gameContent();
     })
     ultraButton.addEventListener('click', () => {
@@ -72,14 +77,34 @@ function buttonPicker(){
         medButton.style.display = "none";
         fastButton.style.display = "none";
         slowButton.style.display = "none";
+        impossibleButton.style.display = "none";
         body.classList.add ('rainbow');
         S.classList.add('titleRotation');
         N.classList.add('titleRotation');
         A.classList.add('titleRotation');
         K.classList.add('titleRotation');
         E.classList.add('titleRotation');
-        exclamation.classList.remove('animate');
+        exclamation.classList.add('titleRotation');
         ultraOn = true;
+        gameContent();
+    })
+    impossibleButton.addEventListener('click', () => {
+        speedChoice = 75;
+        impossibleButton.style.backgroundColor = "rgba(9, 255, 0, 0.668)";
+        medButton.style.display = "none";
+        fastButton.style.display = "none";
+        slowButton.style.display = "none";
+        ultraButton.style.display = "none";
+        body.classList.add ('rainbow');
+        S.classList.add('titleRotation');
+        N.classList.add('titleRotation');
+        A.classList.add('titleRotation');
+        K.classList.add('titleRotation');
+        E.classList.add('titleRotation');
+        exclamation.classList.add('titleRotation');
+        title.classList.add('animate');
+        ultraOn = true;
+        impossibleOn = true;
         gameContent();
     })
     
@@ -117,6 +142,24 @@ function pixelColorChanger(){
         gameOver();
     }
     if(currentPixel == fruitPixel){
+        if(impossibleOn == true){
+            gameContainer.style.transition = '.9s'
+            let yAxis = (Math.random() * 70).toFixed();
+            let plusOrMinusY = Math.round(Math.random() * 4);
+            let xAxis = (Math.random() * 70).toFixed();
+            if(plusOrMinusY == 0){
+                gameContainer.style.transform = `rotateY(${yAxis}deg) rotateX(${xAxis}deg`
+            }
+            else if (plusOrMinusY == 1){
+                gameContainer.style.transform = `rotateY(-${yAxis}deg) rotateX(-${xAxis}deg`
+            }
+            else if (plusOrMinusY == 3){
+                gameContainer.style.transform = `rotateY(${yAxis}deg) rotateX(-${xAxis}deg`
+            }
+            else if (plusOrMinusY == 4){
+                gameContainer.style.transform = `rotateY(-${yAxis}deg) rotateX(${xAxis}deg`
+            }
+        }
         score++
         scoreNum.textContent = score;
         fruit.style.backgroundColor = "black";
