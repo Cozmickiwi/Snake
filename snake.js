@@ -118,7 +118,7 @@ function fruitGen(){
     while(notSnake == false){
         let rng = Math.random() * 400;
         fruitPixel = Math.round(rng);
-        if(pixelHistory.includes(fruitPixel) && gameStart == true){
+        if((pixelHistory.includes(fruitPixel) || currentPixel == fruitPixel) && gameStart == true){
             notSnake = false;
         }
         else{
