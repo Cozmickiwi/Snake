@@ -68,8 +68,10 @@ function pixelColorChanger(){
         pixelHistory.push(prevPixel);
         let leadPixel = document.getElementById(`pixel${currentPixel}`);
         leadPixel.style.backgroundColor = "green";
+        leadPixel.style.border = "1.5px solid rgb(88, 88, 88)";
         let offPixel = document.getElementById(`pixel${pixelHistory[0]}`);
         offPixel.style.backgroundColor = "black";
+        offPixel.style.border = "0px";
         if (score==prevScore) pixelHistory.shift();
         prevScore = score;
         prevPixel = currentPixel;
@@ -79,8 +81,10 @@ function pixelColorChanger(){
         pixelHistory.push(prevPixel);
         let leadPixel = document.getElementById(`pixel${currentPixel}`);
         leadPixel.style.backgroundColor = "green";
+        leadPixel.style.border = "1.5px solid rgb(88, 88, 88)";
         let offPixel = document.getElementById(`pixel${pixelHistory[(0)]}`);
         offPixel.style.backgroundColor = "black";
+        offPixel.style.border = "0px";
         if (score==prevScore) pixelHistory.shift();
         prevScore = score;
         prevPixel = currentPixel;
@@ -90,8 +94,10 @@ function pixelColorChanger(){
         pixelHistory.push(prevPixel);
         let leadPixel = document.getElementById(`pixel${currentPixel}`);
         leadPixel.style.backgroundColor = "green";
+        leadPixel.style.border = "1.5px solid rgb(88, 88, 88)";
         let offPixel = document.getElementById(`pixel${pixelHistory[(0)]}`);
         offPixel.style.backgroundColor = "black";
+        offPixel.style.border = "0px";
         if (score==prevScore) pixelHistory.shift();
         prevScore = score;
         prevPixel = currentPixel;
@@ -101,8 +107,10 @@ function pixelColorChanger(){
         pixelHistory.push(prevPixel);
         let leadPixel = document.getElementById(`pixel${currentPixel}`);
         leadPixel.style.backgroundColor = "green";
+        leadPixel.style.border = "1.5px solid rgb(88, 88, 88)";
         let offPixel = document.getElementById(`pixel${pixelHistory[(0)]}`);
         offPixel.style.backgroundColor = "black";
+        offPixel.style.border = "0px";
         if (score==prevScore) pixelHistory.shift();
         prevScore = score;
         prevPixel = currentPixel;
