@@ -144,9 +144,9 @@ function pixelColorChanger(){
     if(currentPixel == fruitPixel){
         if(impossibleOn == true){
             gameContainer.style.transition = '1.3s'
-            let yAxis = (Math.random() * 80).toFixed();
+            let yAxis = (Math.random() * 75).toFixed();
             let plusOrMinusY = Math.round(Math.random() * 4);
-            let xAxis = (Math.random() * 80).toFixed();
+            let xAxis = (Math.random() * 75).toFixed();
             if(plusOrMinusY == 0){
                 gameContainer.style.transform = `rotateY(${yAxis}deg) rotateX(${xAxis}deg`
             }
