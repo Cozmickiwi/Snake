@@ -89,7 +89,7 @@ function buttonPicker(){
         gameContent();
     })
     impossibleButton.addEventListener('click', () => {
-        speedChoice = 75;
+        speedChoice = 70;
         impossibleButton.style.backgroundColor = "rgba(9, 255, 0, 0.668)";
         medButton.style.display = "none";
         fastButton.style.display = "none";
@@ -143,10 +143,10 @@ function pixelColorChanger(){
     }
     if(currentPixel == fruitPixel){
         if(impossibleOn == true){
-            gameContainer.style.transition = '.9s'
-            let yAxis = (Math.random() * 70).toFixed();
+            gameContainer.style.transition = '1.3s'
+            let yAxis = (Math.random() * 80).toFixed();
             let plusOrMinusY = Math.round(Math.random() * 4);
-            let xAxis = (Math.random() * 70).toFixed();
+            let xAxis = (Math.random() * 80).toFixed();
             if(plusOrMinusY == 0){
                 gameContainer.style.transform = `rotateY(${yAxis}deg) rotateX(${xAxis}deg`
             }
