@@ -48,7 +48,6 @@ document.addEventListener('keydown', (e) =>{
     }
     console.log(direction);
 })
-
 setInterval(pixelColorChanger, 100);
 function pixelColorChanger(){
     if (currentPixel > 400 || currentPixel < 0 ||(((prevPixel-1) % 20 == 0) && currentPixel % 20 == 0)
@@ -109,10 +108,8 @@ function pixelColorChanger(){
         prevPixel = currentPixel;
         currentPixel += 20;
     }
-    
 }
 //make apple appear randomly using rng, if the apple placement is where the snake currently is, reroll
-
 function fruitGen(){
     let notSnake = false;
     while(notSnake == false){
@@ -139,9 +136,12 @@ function gameOver(){
         gameOverText.style.display = ('block');
         restartButton.style.display = ('block');
         restartButton.addEventListener('click', () => {
-            location.reload()
+            location.reload();
         })
-    }, 2000)
+        document.addEventListener('keydown', () => {
+            location.reload();
+        })
+    }, 2000);
 }
 let hover = false;
 let S = document.getElementById('S');
@@ -154,7 +154,7 @@ let title = document.querySelector('.title');
 title.addEventListener('mouseover', (e) => {
     title.addEventListener('mouseleave', () => {
         hover = false;
-    })
+    });
     hover = true;
     setTimeout(function(){
     if(hover == true) S.classList.add('animate');
@@ -168,13 +168,13 @@ title.addEventListener('mouseover', (e) => {
                     if(hover == true) E.classList.add('animate');
                     setTimeout(function(){
                         if(hover == true) exclamation.classList.add('animate');
-                    }, 150)
-                }, 150)
-            }, 150)
-        }, 150)
-    }, 150)
-}, 150)
-})
+                    }, 150);
+                }, 150);
+            }, 150);
+        }, 150);
+    }, 150);
+}, 150);
+});
 title.addEventListener('mouseleave', () => {
     S.classList.remove('animate');
     N.classList.remove('animate');
@@ -182,8 +182,7 @@ title.addEventListener('mouseleave', () => {
     K.classList.remove('animate');
     E.classList.remove('animate');
     exclamation.classList.remove('animate');
-    
-})
+});
 gameContainer.addEventListener('mouseover', () => {
     S.classList.remove('animate');
     N.classList.remove('animate');
@@ -191,6 +190,4 @@ gameContainer.addEventListener('mouseover', () => {
     K.classList.remove('animate');
     E.classList.remove('animate');
     exclamation.classList.remove('animate');
-    
-})
-
+});
